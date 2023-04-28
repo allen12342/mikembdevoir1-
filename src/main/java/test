@@ -1,0 +1,61 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class InterfaceGraphique extends JFrame implements ActionListener {
+    private JButton consulterBtn;
+    private JButton telechargerBtn;
+    private JButton proposerBtn;
+    private JButton supprimerBtn;
+    private JTextField stationField;
+
+    public InterfaceGraphique() {
+        super("Ma fenêtre");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(500, 200);
+
+        JPanel btnPanel = new JPanel();
+        consulterBtn = new JButton("Consulter les données");
+        consulterBtn.addActionListener(this);
+        btnPanel.add(consulterBtn);
+        telechargerBtn = new JButton("Télécharger le fichier");
+        telechargerBtn.addActionListener(this);
+        btnPanel.add(telechargerBtn);
+        proposerBtn = new JButton("Proposer une station");
+        proposerBtn.addActionListener(this);
+        btnPanel.add(proposerBtn);
+        supprimerBtn = new JButton("Supprimer une proposition");
+        supprimerBtn.addActionListener(this);
+        btnPanel.add(supprimerBtn);
+
+        stationField = new JTextField("Nom de la station");
+        JPanel stationPanel = new JPanel();
+        stationPanel.add(stationField);
+
+        getContentPane().add(btnPanel, BorderLayout.NORTH);
+        getContentPane().add(stationPanel, BorderLayout.CENTER);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == consulterBtn) {
+            // Code pour lire les données de l'API et afficher les résultats
+        } else if (e.getSource() == telechargerBtn) {
+            // Code pour télécharger le fichier JobSetting
+        } else if (e.getSource() == proposerBtn) {
+            String nomStation = stationField.getText();
+            // Code pour saisir les infos sur la station nom prenom
+        } else if (e.getSource() == supprimerBtn) {
+            String nomStation = stationField.getText();
+            // Code pour supprimer la proposition
+        }
+    }
+
+    public static void main(String[] args) {
+        new InterfaceGraphique();
+    }
+}
